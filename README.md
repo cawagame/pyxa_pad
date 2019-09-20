@@ -1,1 +1,5 @@
 # pyxa_pad
+Python 2.7
+
+#--- ATTENTION ILS FAUTS UNE MANETTE DE JEUX CONNECT EN USB --
+#--- UN BUG CHEZ MOI,
