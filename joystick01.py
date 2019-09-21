@@ -51,10 +51,9 @@ class jock:
         self.dire_s         =   [None,None]
         #--------------------------------------------
         self.ax             =   [0]*10
-        self.ax_c           =   [10]*10
+        self.ax_c           =   [30]*10
         self.ax_d           =   []
-        self.ax01_s           =   [None,None]
-        self.ax25_s           =   [None,None]
+        self.ax_s           =   [None,None]
         self.ax_u           =   [0]*10
 
         self.p0             =   {}#valeur poubelle 
@@ -66,7 +65,6 @@ class jock:
 
     def button(self):
         for i in range(14):
-            
             if self.pad.get_button(i)!=0:self.pad_button(i)
             else:self.but[i]=0
         if self.but.count(0)==14:
@@ -76,11 +74,10 @@ class jock:
         
 
     def pad_button(self,n):
-        ""
-                    
+        ""        
         self.but_d_ =self.but_d
         #print self.but_s,n,'----'
-        if self.but.count(0)<14:
+        if self.but.count(0)<13:
             
             self.but_s  =[None,None,0]
             
@@ -154,14 +151,12 @@ class jock:
         elif    n ==(1,-1)  :d=8    #---> ^
 
         #if d !=0:self.croix_dire(d)
-        
         for i in range(8):
             if i==d:self.croix_dire(d)
             else:self.dire[i]=0
         if self.dire.count(0)==8:
             ""
-            #self.dire_s =[0]*8
-            self.dire_s =[None,None]
+            self.dire_s =[0]*8
         #print self.dire,self.dire.count(0)
         
     def croix_dire(self,d):
@@ -184,47 +179,16 @@ class jock:
     #______________________________ A X E __________________________
 
 
-    def axie(self):
-        ''
-        self.ax01_s   =[None,None]
-        self.ax25_s   =[None,None]
 
-        
-        
-        for i in [0,1]:
-            if int(self.pad.get_axis(i)*10) !=0:
-                
-                if      self.pad.get_axis(i)<0 and i==0:    da=1
-                elif    self.pad.get_axis(i)<0 and i==1:    da=4
-                elif    self.pad.get_axis(i)>0 and i==0:    da=3
-                elif    self.pad.get_axis(i)>0 and i==1:    da=2
-                self.ax01_s   =[self.pad.get_axis(i),da]
-                
-        da =0
-        for i in [2,5]:
-            if int(self.pad.get_axis(i)*10) !=0:
-                
-                if      self.pad.get_axis(i)<0 and i==2:    da=5
-                elif    self.pad.get_axis(i)<0 and i==5:    da=8
-                elif    self.pad.get_axis(i)>0 and i==2:    da=7
-                elif    self.pad.get_axis(i)>0 and i==5:    da=6
-                self.ax25_s   =[self.pad.get_axis(i),da]
-                
-            
-            
-                
-
-    """
-    def axie(self):
+    def axie_1(self):
         ''
         da =[0,-1]
-        for i in [0,1,2,5]:
-          
+        for i in range(3):
             if self.pad.get_axis(i) !=0.0:
                 if      self.pad.get_axis(i)<0 and i==0:    da=[1,0]
-                elif    self.pad.get_axis(i)<0 and i==1:    da=[4,0]
+                elif    self.pad.get_axis(i)<0 and i==1:    da=[2,1]
                 elif    self.pad.get_axis(i)>0 and i==0:    da=[3,0]
-                elif    self.pad.get_axis(i)>0 and i==1:    da=[2,0]
+                elif    self.pad.get_axis(i)>0 and i==1:    da=[4,0]
             
                 #elif    self.pad.get_axis(i)<0 and i==1:    da=5
                 #elif    self.pad.get_axis(i)<0 and i==1:    da=6
@@ -253,7 +217,6 @@ class jock:
             ""
             #print self.ax_s
             #print " "*10,self.ax[da],a,self.ax_s
-    """
         
         
     """
@@ -323,14 +286,12 @@ class jock:
         ""
         self.button()       
         self.direction()
-        self.axie()
-        #print self.ax01_s,self.ax25_s
+        self.axie_1()
         
         #print self.but_ds
         
         self.manette_info(self.but_s)
-        #self.manette_info(self.but_ds)
-
+        self.manette_info(self.but_ds)
         #self.manette_info(self.dire_s)
         #self.manette_info(self.ax_s)
         
