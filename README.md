@@ -7,7 +7,11 @@ Python 2.7
 
 
   lancer python paxa.py
-  les 4 bouttons a droits pour la couleur
+les 4 bouttons droits:
+ Raccourcis pour la couleur (afficher a gauche de écrans)
+ Appui long. Menu pour choisir couleurs.
+   Les 4 bouton, utilisée comment direction pour choisir naviguer.
+
   
         
  
